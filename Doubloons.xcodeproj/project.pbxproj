@@ -15,6 +15,7 @@
 		A192F4B12D71E01F00646250 /* telaMetasFinanceiras.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192F4B02D71E01F00646250 /* telaMetasFinanceiras.swift */; };
 		A192F4B32D71E03800646250 /* telaTarefas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192F4B22D71E03800646250 /* telaTarefas.swift */; };
 		A192F4B52D71E05A00646250 /* telaReservaEmergencial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192F4B42D71E05A00646250 /* telaReservaEmergencial.swift */; };
+		A192F4B72D71F06300646250 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192F4B62D71F06300646250 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A192F4B02D71E01F00646250 /* telaMetasFinanceiras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = telaMetasFinanceiras.swift; sourceTree = "<group>"; };
 		A192F4B22D71E03800646250 /* telaTarefas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = telaTarefas.swift; sourceTree = "<group>"; };
 		A192F4B42D71E05A00646250 /* telaReservaEmergencial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = telaReservaEmergencial.swift; sourceTree = "<group>"; };
+		A192F4B62D71F06300646250 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		A192F49F2D71DE9D00646250 /* Doubloons */ = {
 			isa = PBXGroup;
 			children = (
+				A192F4B62D71F06300646250 /* Model.swift */,
 				A192F4B42D71E05A00646250 /* telaReservaEmergencial.swift */,
 				A192F4B22D71E03800646250 /* telaTarefas.swift */,
 				A192F4B02D71E01F00646250 /* telaMetasFinanceiras.swift */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A192F4B72D71F06300646250 /* Model.swift in Sources */,
 				A192F4B12D71E01F00646250 /* telaMetasFinanceiras.swift in Sources */,
 				A192F4AF2D71DF0800646250 /* telaGastos.swift in Sources */,
 				A192F4A32D71DE9D00646250 /* ContentView.swift in Sources */,
