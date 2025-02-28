@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @State var renda:String = ""
+    @State var mostra : Bool = true
+    @State var eye2 : String = "eye"
+    @State var dinheiro : String = "R$ 1522,04"
+
     var body: some View {
         NavigationStack{
             VStack{
@@ -27,15 +31,28 @@ struct ContentView: View {
                 }
                 HStack{
                     HStack{
-                        Text("R$ 1522,04")
+                        Text(dinheiro)
                             .font(.title3)
                             .bold()
                             .padding(.leading, 20)
-                        Image(systemName: "eye.fill")
-                            .padding(.trailing, 30)
+                        Spacer()
+                        Image(systemName: eye2)
+                            .padding(.trailing, 22)
                         Spacer()
                     }
                     .padding(.bottom, 10)
+                    .onTapGesture {
+                        mostra.toggle()
+                        if mostra == false {
+                            eye2 = "eye.slash.fill"
+                            dinheiro = "************"
+                        } else {
+                            mostra = true
+                            eye2 = "eye"
+                            dinheiro = "R$ 1522,04"
+                        }
+                    }.frame(width: 200, height: 40)
+                    
                     HStack{
                         Text("Bem-vindo(a), Hesse!")
                             .font(.callout)
