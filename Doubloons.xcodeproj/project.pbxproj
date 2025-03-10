@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A152BB8B2D7F0EC900459C30 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152BB8A2D7F0EC900459C30 /* ViewModel.swift */; };
 		A192F4A12D71DE9D00646250 /* DoubloonsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192F4A02D71DE9D00646250 /* DoubloonsApp.swift */; };
 		A192F4A32D71DE9D00646250 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192F4A22D71DE9D00646250 /* ContentView.swift */; };
 		A192F4A52D71DE9E00646250 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A192F4A42D71DE9E00646250 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A152BB8A2D7F0EC900459C30 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A192F49D2D71DE9D00646250 /* Doubloons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doubloons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A192F4A02D71DE9D00646250 /* DoubloonsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubloonsApp.swift; sourceTree = "<group>"; };
 		A192F4A22D71DE9D00646250 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				A192F4B62D71F06300646250 /* Model.swift */,
+				A152BB8A2D7F0EC900459C30 /* ViewModel.swift */,
 				A192F4B42D71E05A00646250 /* telaReservaEmergencial.swift */,
 				A192F4B22D71E03800646250 /* telaTarefas.swift */,
 				A192F4B02D71E01F00646250 /* telaMetasFinanceiras.swift */,
@@ -158,6 +161,7 @@
 				A192F4A32D71DE9D00646250 /* ContentView.swift in Sources */,
 				A192F4B52D71E05A00646250 /* telaReservaEmergencial.swift in Sources */,
 				A192F4B32D71E03800646250 /* telaTarefas.swift in Sources */,
+				A152BB8B2D7F0EC900459C30 /* ViewModel.swift in Sources */,
 				A192F4A12D71DE9D00646250 /* DoubloonsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
