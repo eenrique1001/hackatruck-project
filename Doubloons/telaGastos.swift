@@ -11,24 +11,6 @@ struct telaGastos: View {
     
     var body: some View {
         VStack{
-            HStack{
-                Image(systemName: "house")
-                    .resizable()
-                    .frame(width: 40, height: 30)
-                    .imageScale(.large)
-                    .foregroundStyle(.white)
-                Text("")
-                Text("Início")
-                    .foregroundStyle(.white)
-                    .font(.title2)
-            }.frame(width: 150, height: 50).clipShape(Rectangle()).background(LinearGradient(gradient: Gradient(colors:[ .black, .red]),startPoint: .leading, endPoint: .trailing))
-                .cornerRadius(20.0)
-                .padding(.leading,-205)
-                .shadow(radius: 5)
-                .offset(x: -10, y: -2)
-            
-            Spacer().frame(height: 28)
-            
             VStack{
                 HStack{
                     Text("Gastos Fixos")

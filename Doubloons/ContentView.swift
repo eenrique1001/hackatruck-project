@@ -13,6 +13,7 @@ struct ContentView: View {
     @State var eye2 : String = "eye"
     @State var dinheiro : String = "R$ 1522,04"
 
+    
     var body: some View {
         NavigationStack{
             VStack{

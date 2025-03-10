@@ -8,27 +8,9 @@
 import SwiftUI
 
 struct telaReservaEmergencial: View {
-    
+    @State var valorReservaEmergencial:String=""
     var body: some View {
         VStack{
-            HStack{
-                Image(systemName: "house")
-                    .resizable()
-                    .frame(width: 40, height: 30)
-                    .imageScale(.large)
-                    .foregroundStyle(.white)
-                Text("")
-                Text("Início")
-                    .foregroundStyle(.white)
-                    .font(.title2)
-            }.frame(width: 150, height: 50).clipShape(Rectangle()).background(LinearGradient(gradient: Gradient(colors:[ .black, .green]),startPoint: .leading, endPoint: .trailing))
-                .cornerRadius(20.0)
-                .padding(.leading,-205)
-                .shadow(radius: 5)
-                .offset(x: -10, y: -2)
-            
-            Spacer().frame(height: 28)
-            
             VStack{
                 HStack{
                     Text("Reserva Emergencial")
@@ -61,9 +43,12 @@ struct telaReservaEmergencial: View {
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20)))
             .shadow(radius: 10)
             .padding(.leading, 15)
-            
             Spacer().frame(height: 30)
-            Text("")
+            
+            
+            
+            Text("Criar uma reserva:").bold().padding(.trailing,200)
+            TextField("Digite o valor a ser guardado todo mês",text:$valorReservaEmergencial).underline().padding(.leading,24)
             
             HStack{
                 Text("Criar")
@@ -72,9 +57,18 @@ struct telaReservaEmergencial: View {
             }.frame(width: 150, height: 60)
                 .background(LinearGradient(gradient: Gradient(colors:[.green, .black]),startPoint: .topTrailing, endPoint: .bottomLeading))
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 10, topTrailing: 10)))
-                .shadow(radius: 8)
+                .shadow(radius: 8).padding(.trailing,200).padding(.top)
+            Spacer().frame(height: 30)
             
-            Spacer().frame(height: 40)
+            Text("Reserva:").bold().padding(.trailing,275)
+            
+            ZStack{
+                HStack{
+                    Text("Total Acumulado: R$ ")
+                }.frame(width: 350,height: 100).background(.white)
+                    .clipShape(Rectangle()).cornerRadius(10)
+                    .shadow(radius: 10)
+            }
             
             HStack{
                 Spacer().frame(width: 50)
