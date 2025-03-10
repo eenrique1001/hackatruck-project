@@ -11,24 +11,6 @@ struct telaReservaEmergencial: View {
     
     var body: some View {
         VStack{
-            HStack{
-                Image(systemName: "house")
-                    .resizable()
-                    .frame(width: 40, height: 30)
-                    .imageScale(.large)
-                    .foregroundStyle(.white)
-                Text("")
-                Text("Início")
-                    .foregroundStyle(.white)
-                    .font(.title2)
-            }.frame(width: 150, height: 50).clipShape(Rectangle()).background(LinearGradient(gradient: Gradient(colors:[ .black, .green]),startPoint: .leading, endPoint: .trailing))
-                .cornerRadius(20.0)
-                .padding(.leading,-205)
-                .shadow(radius: 5)
-                .offset(x: -10, y: -2)
-            
-            Spacer().frame(height: 28)
-            
             VStack{
                 HStack{
                     Text("Reserva Emergencial")
@@ -62,7 +44,7 @@ struct telaReservaEmergencial: View {
             .shadow(radius: 10)
             .padding(.leading, 15)
             
-            Spacer().frame(height: 30)
+            Spacer().frame(height: 80)
             Text("")
             
             HStack{
