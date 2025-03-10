@@ -7,52 +7,53 @@
 
 import Foundation
 
-struct Financeiro: Codable {
+struct Financeiro: Codable, Hashable {
+    var _id: String
+    var _rev: String
     var nome: String
-    var saldoEmConta: Double
-    var rendaBrutaMensal: Double
-    var saldoRestanteMensal: Double
-    var gastosFixos: GastosFixos
-    var metasFinanceiras: MetasFinanceiras
-    var reservaEmergencial: ReservaEmergencial
+    var saldo_em_conta: Double
+    var renda_bruta_mensal: Double
+    var saldo_restante_mensal: Double
+    var gastos_fixos: GastosFixos
+    var metas_financeiras: MetasFinanceiras
+    var reserva_emergencial: ReservaEmergencial
     var tarefas: [Tarefa]
 }
 
-struct GastosFixos: Codable {
-    var totalGastos: Double
+struct GastosFixos: Codable, Hashable {
+    var total_gastos: Double
     var gastos: [Gasto]
 }
 
-struct Gasto: Codable {
+struct Gasto: Codable, Hashable {
     var titulo: String
     var valor: Double
 }
 
-struct MetasFinanceiras: Codable {
-    var totalMetas: Double
+struct MetasFinanceiras: Codable, Hashable {
+    var total_metas: Double
     var metas: [Meta]
 }
 
-struct Meta: Codable {
+struct Meta: Codable, Hashable {
     var titulo: String
     var valor: Double
     var mensalmente: Double
-    var totalAcumulado: Double
-    var dataCriacao: Int64
+    var total_acumulado: Double
+    var data_criacao: Int64
 }
 
-struct ReservaEmergencial: Codable {
-    var totalReserva: Double
+struct ReservaEmergencial: Codable, Hashable {
+    var total_reserva: Double
     var mensalmente: Double
-    var guardadoEsteMes: Double
-    var quantidadeDeMesesAcumulados: Int
-    var dataCriacao: Int64
+    var guardado_este_mes: Double
+    var quantidade_de_meses_acumulados: Int
+    var data_criacao: Int64
 }
 
-struct Tarefa: Codable {
+struct Tarefa: Codable, Hashable {
     var titulo: String
     var descricao: String
     var prioridade: String
     var status: String
 }
-
