@@ -12,7 +12,7 @@ class FinanceiroViewModel : ObservableObject {
     @Published var usuarios : [Financeiro] = []
     
     func fetch(){
-        let url = "192.168.128.90:1880/getD"
+        let url = "http://192.168.128.90:1880/getD"
         
         let task = URLSession.shared.dataTask(with: URL(string: url)!){
             data, _, error in

@@ -42,9 +42,9 @@ struct telaGastos: View {
             .foregroundColor(.white)
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20)))
             .shadow(radius: 10)
-            .padding(.leading, 15)
+            .padding(.leading, 15).offset()
             
-            Spacer().frame(height: 30)
+            Spacer().frame(height: 50)
             
             HStack{
                 Spacer()
