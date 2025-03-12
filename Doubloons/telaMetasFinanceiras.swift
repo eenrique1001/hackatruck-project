@@ -15,9 +15,8 @@ struct telaMetasFinanceiras: View {
     
     @ObservedObject var financeiroView = FinanceiroViewModel()
     
-    @State var usuarios : [Financeiro] = []
+    @State var usuario : Financeiro = Financeiro(nome: "", saldo_em_conta: 0, renda_bruta_mensal: 0, saldo_restante_mensal: 0, gastos_fixos: GastosFixos(total_gastos: 0, gastos: [Gasto(titulo: "", valor: 0)]), metas_financeiras: MetasFinanceiras(total_metas: 0, metas: [Meta(titulo: "", data_criacao: 2)]), reserva_emergencial: ReservaEmergencial(total_reserva: 0, mensalmente: 0, guardado_este_mes: 0, quantidade_de_meses_acumulados: 0, data_criacao: 0), tarefas: [Tarefa(titulo: "", descricao: "", prioridade: "", status: "")])
     
-    @State var usuario : Financeiro?
     
     
     var body: some View {
@@ -58,7 +57,7 @@ struct telaMetasFinanceiras: View {
         Spacer().frame(height: 30)
         HStack{
             VStack{
-            Text("Criar objetivo:")
+                Text("Criar objetivo:")
                     .fontWeight(.semibold).padding(.leading, -173)
                 HStack{
                     TextField("Insira um titulo", text: $meta.titulo)
@@ -77,7 +76,7 @@ struct telaMetasFinanceiras: View {
                     TextField("Total acumulado até o momento", value: $meta.total_acumulado, format: .number)
                         .overlay(VStack{Divider().offset(x: 0, y: 15)})
                 }.padding()
-
+                
                 Spacer().frame(height: 35)
                 HStack{
                     Button( action: {
@@ -88,7 +87,7 @@ struct telaMetasFinanceiras: View {
                             .font(.title3)
                             .fontWeight(.semibold)
                     })
-                   
+                    
                 }
                 .foregroundColor(.white)
                 .frame(width: 130, height: 60)
@@ -96,24 +95,30 @@ struct telaMetasFinanceiras: View {
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20, bottomTrailing: 20)))
                 .shadow(radius: 5)
                 .padding(.leading, -170)
-
+                
                 Spacer().frame(height: 35)
                 
-                Text("Metas criadas:").padding(.leading, -165).bold()
+                HStack {
+                    Text("Metas criadas:").padding(.leading, -165).bold()
+//                    Button("Teste") {
+//                        usuario = financeiroView.fetch2()
+//                        print(usuario!)
+//                    }
+                    
+                }
+                
                 
                 ScrollView{
                     
+                        ForEach(usuario.metas_financeiras.metas, id: \.self){
+                            m in
+                            Text(m.titulo)
+                        }
                     
                     
                 }
                 
             }.padding(.leading, 20)
-        }.onAppear(){
-            usuarios = financeiroView.usuarios.filter({$0._id == "f08635540136f70086da8e9a93f194f5"})
-            
-            if (usuarios.count > 0){
-                usuario = usuarios.first!
-            }
         }
         Spacer()
     }

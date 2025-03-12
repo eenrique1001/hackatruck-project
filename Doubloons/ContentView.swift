@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var financeiroView = FinanceiroViewModel()
+    @State var usuario : Financeiro = Financeiro(nome: "", saldo_em_conta: 0, renda_bruta_mensal: 0, saldo_restante_mensal: 0, gastos_fixos: GastosFixos(total_gastos: 0, gastos: [Gasto(titulo: "", valor: 0)]), metas_financeiras: MetasFinanceiras(total_metas: 0, metas: [Meta(titulo: "", data_criacao: 2)]), reserva_emergencial: ReservaEmergencial(total_reserva: 0, mensalmente: 0, guardado_este_mes: 0, quantidade_de_meses_acumulados: 1, data_criacao: 2), tarefas: [Tarefa(titulo: "", descricao: "", prioridade: "", status: "")])
+    @State var usuarios: [Financeiro] = []
     @State var renda:String = ""
-    @State var mostra : Bool = true
+    @State var mostra : Bool = false
     @State var eye2 : String = "eye"
-    @State var dinheiro : String = "R$ 1522,04"
+    @State var dinheiro : String = ""
 
     var body: some View {
         NavigationStack{
@@ -54,7 +57,7 @@ struct ContentView: View {
                     }.frame(width: 200, height: 40)
                     
                     HStack{
-                        Text("Bem-vindo(a), Hesse!")
+                        Text("Bem-vindo(a), " + usuario.nome)
                             .font(.callout)
                             .padding(.trailing, 10)
                     }
@@ -86,12 +89,12 @@ struct ContentView: View {
             .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomTrailing: 20))).offset(y:-50)
             HStack{
-                NavigationLink(destination:telaGastos()){
+                NavigationLink(destination:telaGastos(usuario: usuario)){
                     HStack{
                         VStack(alignment:.leading){
                             Text("Gastos fixos").foregroundColor(.white).bold()
                             Spacer().frame(height: 5)
-                            Text("$522,04").foregroundColor(.white)
+                            Text("R$" + String(usuario.gastos_fixos.total_gastos)).foregroundColor(.white)
                             Spacer().frame(height: 30)
                             Text("Editar").font(.system(size: 15)).foregroundColor(.white)
                         }.padding(.leading,-40)
@@ -102,12 +105,12 @@ struct ContentView: View {
                         .cornerRadius(25)
                         .shadow(radius: 10)
                 }
-                NavigationLink(destination:telaMetasFinanceiras()){
+                NavigationLink(destination:telaMetasFinanceiras(usuario: usuario)){
                     HStack{
                         VStack(alignment:.leading){
                             Text("Metas Financeiras").foregroundColor(.white).bold()
                             Spacer().frame(height: 5)
-                            Text("$522,04").foregroundColor(.white)
+                            Text("R$" + String(usuario.metas_financeiras.total_metas!)).foregroundColor(.white)
                             Spacer().frame(height: 30)
                             Text("Editar").font(.system(size: 15)).foregroundColor(.white)
                         }.padding(.leading,0)
@@ -120,12 +123,12 @@ struct ContentView: View {
                 }
             }.offset(y:-20)
             HStack{
-                NavigationLink(destination:telaReservaEmergencial()){
+                NavigationLink(destination:telaReservaEmergencial(usuario: usuario)){
                     HStack{
                         VStack(alignment:.leading){
                             Text("Reserva               Emergencial").foregroundColor(.white).bold().multilineTextAlignment(.leading)
                             Spacer().frame(height: 5)
-                            Text("$522,04").foregroundColor(.white)
+                            Text("R$" + String(usuario.reserva_emergencial.total_reserva)).foregroundColor(.white)
                             Spacer().frame(height: 10)
                             Text("Editar").font(.system(size: 15)).foregroundColor(.white)
                         }.padding(.leading,-15)
@@ -140,7 +143,7 @@ struct ContentView: View {
                         VStack(alignment:.leading){
                             Text("Saldo Restante    Mensal").foregroundColor(.white).bold().multilineTextAlignment(.leading)
                             Spacer().frame(height: 5)
-                            Text("$522,04").foregroundColor(.white)
+                            Text("R$" + String(usuario.saldo_restante_mensal)).foregroundColor(.white)
                             Spacer().frame(height: 30)
                         }.padding(.leading,-10)
                     }.frame(width: 180,height: 130)
@@ -151,7 +154,7 @@ struct ContentView: View {
                         .shadow(radius: 50)
                 
             }.offset(y:-10)
-            NavigationLink(destination:telaTarefas()){
+            NavigationLink(destination:telaTarefas(usuario: usuario)){
                 HStack{
                     Text("Tarefas")
                         .font(.title3)
@@ -163,6 +166,16 @@ struct ContentView: View {
                 .padding(20)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 20, topTrailing: 20))).offset(y:30)
+            }
+        }.onAppear(){
+            financeiroView.fetch()
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: true){_ in
+                usuarios = financeiroView.usuarios.filter({$0.nome == "Hesse"})
+                print(usuarios.count)
+                if (usuarios.count > 0){
+                    usuario = usuarios.first!
+                    dinheiro = "R$" + String(usuario.saldo_em_conta)
+                }
             }
         }
         

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct telaGastos: View {
+    @State var usuario : Financeiro = Financeiro(nome: "", saldo_em_conta: 0, renda_bruta_mensal: 0, saldo_restante_mensal: 0, gastos_fixos: GastosFixos(total_gastos: 0, gastos: [Gasto(titulo: "", valor: 0)]), metas_financeiras: MetasFinanceiras(total_metas: 0, metas: [Meta(titulo: "", data_criacao: 2)]), reserva_emergencial: ReservaEmergencial(total_reserva: 0, mensalmente: 0, guardado_este_mes: 0, quantidade_de_meses_acumulados: 0, data_criacao: 0), tarefas: [Tarefa(titulo: "", descricao: "", prioridade: "", status: "")])
     
     @ObservedObject var financeiroView = FinanceiroViewModel()
     
@@ -36,7 +37,7 @@ struct telaGastos: View {
                 }
                 HStack{
                     HStack{
-                        Text("R$ 522,04")
+                        Text("R$" + String(usuario.gastos_fixos.total_gastos))
                             .font(.title3)
                             .bold()
                             .padding(.leading, 20)
