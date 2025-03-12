@@ -9,11 +9,10 @@ import SwiftUI
 
 struct telaReservaEmergencial: View {
     @State var reserva = ReservaEmergencial(total_reserva: 0, mensalmente: nil, guardado_este_mes: 0, quantidade_de_meses_acumulados: 0, data_criacao: 0)
-    
+    @State var usuario : Financeiro = Financeiro(nome: "", saldo_em_conta: 0, renda_bruta_mensal: 0, saldo_restante_mensal: 0, gastos_fixos: GastosFixos(total_gastos: 0, gastos: [Gasto(titulo: "", valor: 0)]), metas_financeiras: MetasFinanceiras(total_metas: 0, metas: [Meta(titulo: "", data_criacao: 2)]), reserva_emergencial: ReservaEmergencial(total_reserva: 0, mensalmente: 0, guardado_este_mes: 0, quantidade_de_meses_acumulados: 0, data_criacao: 0), tarefas: [Tarefa(titulo: "", descricao: "", prioridade: "", status: "")])
     @ObservedObject var reservaEmergencialView = FinanceiroViewModel()
     
     @State var usuarios : [Financeiro] = []
-    @State var usuario : Financeiro?
     
     var body: some View {
         VStack{
@@ -34,7 +33,7 @@ struct telaReservaEmergencial: View {
                 }
                 HStack{
                     HStack{
-                        Text("R$ 522,04")
+                        Text("R$ " + String(usuario.reserva_emergencial.total_reserva))
                             .font(.title3)
                             .bold()
                             .padding(.leading, 20)
@@ -58,9 +57,14 @@ struct telaReservaEmergencial: View {
                     .overlay(VStack{Divider().offset(x: 0, y: 15)})
             }.padding()
             HStack{
-                Text("Criar")
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.white)
+                Button( action: {
+                    print(reserva)
+                    
+                }, label: {
+                    Text("Criar")
+                        .font(.title3)
+                        .fontWeight(.semibold).foregroundColor(.white)
+                })
             }.frame(width: 150, height: 60)
                 .background(LinearGradient(gradient: Gradient(colors:[.green, .black]),startPoint: .topTrailing, endPoint: .bottomLeading))
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 10, topTrailing: 10)))
@@ -71,36 +75,30 @@ struct telaReservaEmergencial: View {
             
             ZStack{
                 HStack{
-                    Text("Total Acumulado: ")
-                    .frame(width: 300).padding(.trailing,190).padding(.top,-20)
+                    Text("Total Acumulado: R$" + String(usuario.reserva_emergencial.total_reserva))
+                    .frame(width: 300)
                     
                 }.frame(width: 350,height: 70).background(.white)
                     .clipShape(Rectangle()).cornerRadius(10)
                     .shadow(radius: 10)
                 HStack{
-                    Text("Total Acumulado: ")
-                    .frame(width: 300).padding(.trailing,190).padding(.top,-20)
+                    Text("Guardando todo mês: R$" + String(usuario.reserva_emergencial.guardado_este_mes))
                 }.frame(width: 350,height: 70)
                 .background(.white)
                 .clipShape(Rectangle())
                 .cornerRadius(10)
                 .shadow(radius: 10)
-                .offset(x: 0.0, y: 50.0)
+                .offset(x: 0.0, y: 60.0)
                 HStack{
-                    Text("Total Acumulado: ")
-                    .frame(width: 300).padding(.trailing,190).padding(.top,-20)
+                    Text("Guardado todo mês: R$" + String(usuario.reserva_emergencial.guardado_este_mes))
                 }.frame(width: 350,height: 70)
                 .background(.white)
                 .clipShape(Rectangle())
                 .cornerRadius(10)
                 .shadow(radius: 10)
-                .offset(x: 0.0, y: 110.0)
-                Text("R$ \(reserva.mensalmente ?? 0)").offset(x: 30.0, y:-10.0)
-                Text("R$ \(reserva.mensalmente ?? 0)").offset(x: 0.0, y: 60.0)
-                Text("R$ \(reserva.mensalmente ?? 0)").offset(x: 0.0, y: 120.0)
-                
+                .offset(x: 0.0, y: 120.0)
             }
-            Spacer().frame(height: 120)
+            Spacer().frame(height: 150)
             HStack{
                 Spacer().frame(width: 50)
                 Text("Saldo Restante Mensal")
