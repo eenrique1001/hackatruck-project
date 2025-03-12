@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct telaReservaEmergencial: View {
-    @State var valorReservaEmergencial:String=""
+    @State var reserva = ReservaEmergencial(total_reserva: 0, mensalmente: nil, guardado_este_mes: 0, quantidade_de_meses_acumulados: 0, data_criacao: 0)
+    
+    @ObservedObject var reservaEmergencialView = FinanceiroViewModel()
+    
+    @State var usuarios : [Financeiro] = []
+    @State var usuario : Financeiro?
+    
     var body: some View {
         VStack{
             VStack{
@@ -43,13 +49,14 @@ struct telaReservaEmergencial: View {
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20)))
             .shadow(radius: 10)
             .padding(.leading, 15)
+        }
             Spacer().frame(height: 30)
-            
-            
-            
+        VStack{
             Text("Criar uma reserva:").bold().padding(.trailing,200)
-            TextField("Digite o valor a ser guardado todo mês",text:$valorReservaEmergencial).underline().padding(.leading,24)
-            
+            HStack{
+                TextField("Entre com o valor a ser guardado todo mês", value: $reserva.mensalmente, format: .number)
+                    .overlay(VStack{Divider().offset(x: 0, y: 15)})
+            }.padding()
             HStack{
                 Text("Criar")
                     .fontWeight(.semibold)
@@ -64,12 +71,36 @@ struct telaReservaEmergencial: View {
             
             ZStack{
                 HStack{
-                    Text("Total Acumulado: R$ ")
-                }.frame(width: 350,height: 100).background(.white)
+                    Text("Total Acumulado: ")
+                    .frame(width: 300).padding(.trailing,190).padding(.top,-20)
+                    
+                }.frame(width: 350,height: 70).background(.white)
                     .clipShape(Rectangle()).cornerRadius(10)
                     .shadow(radius: 10)
+                HStack{
+                    Text("Total Acumulado: ")
+                    .frame(width: 300).padding(.trailing,190).padding(.top,-20)
+                }.frame(width: 350,height: 70)
+                .background(.white)
+                .clipShape(Rectangle())
+                .cornerRadius(10)
+                .shadow(radius: 10)
+                .offset(x: 0.0, y: 50.0)
+                HStack{
+                    Text("Total Acumulado: ")
+                    .frame(width: 300).padding(.trailing,190).padding(.top,-20)
+                }.frame(width: 350,height: 70)
+                .background(.white)
+                .clipShape(Rectangle())
+                .cornerRadius(10)
+                .shadow(radius: 10)
+                .offset(x: 0.0, y: 110.0)
+                Text("R$ \(reserva.mensalmente ?? 0)").offset(x: 30.0, y:-10.0)
+                Text("R$ \(reserva.mensalmente ?? 0)").offset(x: 0.0, y: 60.0)
+                Text("R$ \(reserva.mensalmente ?? 0)").offset(x: 0.0, y: 120.0)
+                
             }
-            
+            Spacer().frame(height: 120)
             HStack{
                 Spacer().frame(width: 50)
                 Text("Saldo Restante Mensal")
@@ -87,6 +118,12 @@ struct telaReservaEmergencial: View {
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomTrailing: 10, topTrailing: 10)))
                 .shadow(radius: 8)
                 .offset(x: -65)
+        }.onAppear(){
+            usuarios = reservaEmergencialView.usuarios.filter({$0._id == "f08635540136f70086da8e9a93f194f5"})
+            
+            if (usuarios.count > 0){
+                usuario = usuarios.first!
+            }
         }
     }
 }

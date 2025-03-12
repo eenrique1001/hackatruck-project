@@ -45,7 +45,7 @@ struct Meta: Codable, Hashable {
 
 struct ReservaEmergencial: Codable, Hashable {
     var total_reserva: Double
-    var mensalmente: Double
+    var mensalmente: Double?
     var guardado_este_mes: Double
     var quantidade_de_meses_acumulados: Int
     var data_criacao: Int64

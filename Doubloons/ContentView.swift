@@ -12,24 +12,23 @@ struct ContentView: View {
     @State var mostra : Bool = true
     @State var eye2 : String = "eye"
     @State var dinheiro : String = "R$ 1522,04"
-
-    
+    @StateObject var obj1 = FinanceiroViewModel()
     var body: some View {
         NavigationStack{
             VStack{
                 HStack{
-                    Text("Saldo em Conta")
-                        .font(.title)
-                        .bold()
-                        .padding(.top, 20)
-                        .padding(.leading, 20)
-                        .padding(.bottom, 5)
-                    Spacer()
-                    Image(systemName: "line.3.horizontal")
-                        .imageScale(.large)
-                        .foregroundStyle(.white)
-                        .padding()
-                }
+                        Text("Saldo em Conta")
+                            .font(.title)
+                            .bold()
+                            .padding(.top, 20)
+                            .padding(.leading, 20)
+                            .padding(.bottom, 5)
+                        Spacer()
+                        Image(systemName: "line.3.horizontal")
+                            .imageScale(.large)
+                            .foregroundStyle(.white)
+                            .padding()
+                    }
                 HStack{
                     HStack{
                         Text(dinheiro)
@@ -165,8 +164,9 @@ struct ContentView: View {
                 .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 20, topTrailing: 20))).offset(y:30)
             }
+        }.onAppear {
+            obj1.fetch()
         }
-        
     }
 }
 
