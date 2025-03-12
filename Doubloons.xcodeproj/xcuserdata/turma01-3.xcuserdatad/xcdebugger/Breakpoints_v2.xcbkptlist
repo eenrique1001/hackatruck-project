@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ED037850-C676-48B8-BC65-EDF710092D8A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Doubloons/telaGastos.swift"
@@ -16,8 +16,108 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
             endingLineNumber = "14"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "telaGastos"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "ED037850-C676-48B8-BC65-EDF710092D8A - 6f6251a693f492a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of Doubloons.telaGastos.gasto : Doubloons.Gasto"
+                  moduleName = "Doubloons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/turma01-3/Documents/hackatruck-project/Doubloons/telaGastos.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "ED037850-C676-48B8-BC65-EDF710092D8A - a101ea6f9df84648"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Doubloons.telaGastos.gasto.getter : Doubloons.Gasto"
+                  moduleName = "Doubloons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/turma01-3/Documents/hackatruck-project/Doubloons/telaGastos.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "ED037850-C676-48B8-BC65-EDF710092D8A - d5f0d0404dbdb86e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Doubloons.telaGastos.gasto.setter : Doubloons.Gasto"
+                  moduleName = "Doubloons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/turma01-3/Documents/hackatruck-project/Doubloons/telaGastos.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14">
+               </Location>
+               <Location
+                  uuid = "ED037850-C676-48B8-BC65-EDF710092D8A - 969dba6f988c0f7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Doubloons.telaGastos.gasto.modify : Doubloons.Gasto"
+                  moduleName = "Doubloons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/turma01-3/Documents/hackatruck-project/Doubloons/telaGastos.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14">
+               </Location>
+               <Location
+                  uuid = "ED037850-C676-48B8-BC65-EDF710092D8A - 3ead3fd14ef78775"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Doubloons.telaGastos.gasto.modify : Doubloons.Gasto with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Doubloons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/turma01-3/Documents/hackatruck-project/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "ED037850-C676-48B8-BC65-EDF710092D8A - a8f6055736516506"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Doubloons.telaGastos.$gasto.getter : SwiftUI.Binding&lt;Doubloons.Gasto&gt;"
+                  moduleName = "Doubloons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/turma01-3/Documents/hackatruck-project/Doubloons/telaGastos.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14">
+               </Location>
+               <Location
+                  uuid = "ED037850-C676-48B8-BC65-EDF710092D8A - 3621d3992d14375"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of Doubloons.telaGastos.init(financeiroView: Doubloons.FinanceiroViewModel, gasto: Doubloons.Gasto, bool: Swift.Bool, text: Swift.String) -&gt; Doubloons.telaGastos"
+                  moduleName = "Doubloons"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/turma01-3/Documents/hackatruck-project/Doubloons/telaGastos.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

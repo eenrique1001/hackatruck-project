@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct telaGastos: View {
+    @State var usuario : Financeiro = Financeiro(nome: "", saldo_em_conta: 0, renda_bruta_mensal: 0, saldo_restante_mensal: 0, gastos_fixos: GastosFixos(total_gastos: 0, gastos: [Gasto(titulo: "", valor: 0)]), metas_financeiras: MetasFinanceiras(total_metas: 0, metas: [Meta(titulo: "", data_criacao: 2)]), reserva_emergencial: ReservaEmergencial(total_reserva: 0, mensalmente: 0, guardado_este_mes: 0, quantidade_de_meses_acumulados: 0, data_criacao: 0), tarefas: [Tarefa(titulo: "", descricao: "", prioridade: "", status: "")])
     
     @ObservedObject var financeiroView = FinanceiroViewModel()
     
@@ -36,7 +37,7 @@ struct telaGastos: View {
                 }
                 HStack{
                     HStack{
-                        Text("R$ 522,04")
+                        Text("R$" + String(usuario.gastos_fixos.total_gastos))
                             .font(.title3)
                             .bold()
                             .padding(.leading, 20)
@@ -46,7 +47,10 @@ struct telaGastos: View {
                 }
                 .padding(.bottom, 10)
             }
-            .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
+            .background(LinearGradient(gradient: Gradient(colors: [.vermeioE,
+                .vermeioM,
+                .vermeio,
+                .vermeioC]), startPoint: .bottomLeading, endPoint: .topTrailing))
             .foregroundColor(.white)
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20)))
             .shadow(radius: 10)
@@ -114,7 +118,10 @@ struct telaGastos: View {
                         .fontWeight(.semibold)
                         .foregroundStyle(.white)
                 }.frame(width: 349, height: 60)
-                    .background(LinearGradient(gradient: Gradient(colors:[.black, .red]),startPoint: .leading, endPoint: .trailing))
+                    .background(LinearGradient(gradient: Gradient(colors:[.vermeioE,
+                        .vermeioM,
+                        .vermeio,
+                        .vermeioC]),startPoint: .leading, endPoint: .trailing))
                     .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 10, topTrailing: 10)))
                     .shadow(radius: 8)
             })
