@@ -64,7 +64,10 @@ struct ContentView: View {
                 }
                 .padding(.bottom, 10)
             }
-            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
+            .background(LinearGradient(gradient: Gradient(colors: [.azulbebe, 
+                .azulbebeE,
+                .azulbebeP])
+                ,startPoint: .topTrailing, endPoint: .bottomLeading))
             .foregroundColor(.white)
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20)))
             .padding(.leading, 15)
@@ -86,7 +89,10 @@ struct ContentView: View {
             }
             .frame(width: 380,height: 70)
             .foregroundColor(.white)
-            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
+            .background(LinearGradient(gradient: Gradient(colors: [.azulbebe, 
+                .azulbebeE ,
+                .azulbebeP])
+                ,startPoint: .topTrailing, endPoint: .bottomLeading))
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomTrailing: 20))).offset(y:-50)
             HStack{
                 NavigationLink(destination:telaGastos(usuario: usuario)){
@@ -99,7 +105,11 @@ struct ContentView: View {
                             Text("Editar").font(.system(size: 15)).foregroundColor(.white)
                         }.padding(.leading,-40)
                     }.frame(width: 180,height: 130)
-                        .background(LinearGradient(gradient: Gradient(colors: [.black,.red]),startPoint: .topLeading,endPoint: .bottomTrailing))
+                        .background(LinearGradient(gradient: Gradient(colors: [.vermeioE,
+                            .vermeioM,
+                            .vermeio,
+                            .vermeioC]),
+                            startPoint: .topLeading,endPoint: .bottomTrailing))
                         .padding(1)
                         .background()
                         .cornerRadius(25)
@@ -115,7 +125,10 @@ struct ContentView: View {
                             Text("Editar").font(.system(size: 15)).foregroundColor(.white)
                         }.padding(.leading,0)
                     }.frame(width: 180,height: 130)
-                        .background(LinearGradient(gradient: Gradient(colors: [.black,.purple]),startPoint: .topLeading,endPoint: .bottomTrailing))
+                        .background(LinearGradient(gradient: Gradient(colors: [.roxoE,
+                            .roxoM,
+                            .roxoC])
+                            ,startPoint: .topLeading,endPoint: .bottomTrailing))
                         .padding(1)
                         .background()
                         .cornerRadius(25)
@@ -133,7 +146,11 @@ struct ContentView: View {
                             Text("Editar").font(.system(size: 15)).foregroundColor(.white)
                         }.padding(.leading,-15)
                     }.frame(width: 180,height: 130)
-                        .background(LinearGradient(gradient: Gradient(colors: [.black,.green]),startPoint: .topLeading,endPoint: .bottomTrailing))
+                        .background(LinearGradient(gradient: Gradient(colors: [.verdeP,
+                            .verdeE,
+                            .verdeM,
+                            .verde])
+                        ,startPoint: .topLeading,endPoint: .bottomTrailing))
                         .padding(1)
                         .background()
                         .cornerRadius(25)
@@ -147,7 +164,9 @@ struct ContentView: View {
                             Spacer().frame(height: 30)
                         }.padding(.leading,-10)
                     }.frame(width: 180,height: 130)
-                        .background(LinearGradient(gradient: Gradient(colors: [.black,.blue]),startPoint: .topLeading,endPoint: .bottomTrailing))
+                    .background(LinearGradient(gradient: Gradient(colors: [.azulbebeP, 
+                        .azulbebeM])
+                        ,startPoint: .topLeading,endPoint: .bottomTrailing))
                         .padding(1)
                         .background()
                         .cornerRadius(25)
@@ -164,7 +183,10 @@ struct ContentView: View {
                 }
                 .foregroundColor(.white)
                 .padding(20)
-                .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
+                .background(LinearGradient(gradient: Gradient(colors: [.ocreE, 
+                    .ocreM,
+                    .ocreC])
+                    ,startPoint: .bottomLeading, endPoint: .topTrailing))
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 20, topTrailing: 20))).offset(y:30)
             }
         }.onAppear(){

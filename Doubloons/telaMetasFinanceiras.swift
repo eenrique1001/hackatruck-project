@@ -48,7 +48,7 @@ struct telaMetasFinanceiras: View {
                 }
                 .padding(.bottom, 10)
             }
-            .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
+            .background(LinearGradient(gradient: Gradient(colors: [.roxoC, .roxoE]), startPoint: .topTrailing, endPoint: .bottomLeading))
             .foregroundColor(.white)
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20)))
             .shadow(radius: 10)
@@ -91,7 +91,7 @@ struct telaMetasFinanceiras: View {
                 }
                 .foregroundColor(.white)
                 .frame(width: 130, height: 60)
-                .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
+                .background(LinearGradient(gradient: Gradient(colors: [.roxoC, .roxoE]), startPoint: .topTrailing, endPoint: .bottomLeading))
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20, bottomTrailing: 20)))
                 .shadow(radius: 5)
                 .padding(.leading, -170)
