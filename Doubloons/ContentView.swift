@@ -183,7 +183,7 @@ struct ContentView: View {
                 .background(LinearGradient(gradient: Gradient(colors: [.ocreE, 
                     .ocreM,
                     .ocreC])
-                    ,startPoint: .topTrailing, endPoint: .bottomLeading))
+                    ,startPoint: .bottomLeading, endPoint: .topTrailing))
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 20, topTrailing: 20))).offset(y:30)
             }
         }
