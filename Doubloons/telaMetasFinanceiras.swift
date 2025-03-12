@@ -11,6 +11,15 @@ struct telaMetasFinanceiras: View {
     
     @State var titulo : String=""
     
+    @State var meta = Meta(titulo: "", valor: nil, mensalmente: nil, total_acumulado: nil, data_criacao: 0)
+    
+    @ObservedObject var financeiroView = FinanceiroViewModel()
+    
+    @State var usuarios : [Financeiro] = []
+    
+    @State var usuario : Financeiro?
+    
+    
     var body: some View {
         VStack{
             VStack{
@@ -52,28 +61,34 @@ struct telaMetasFinanceiras: View {
             Text("Criar objetivo:")
                     .fontWeight(.semibold).padding(.leading, -173)
                 HStack{
-                    TextField("Insira um titulo", text: $titulo)
+                    TextField("Insira um titulo", text: $meta.titulo)
                         .overlay(VStack{Divider().offset(x: 0, y: 15)})
                 }.padding()
                 HStack{
-                    TextField("Valor do objetivo", text: $titulo)
+                    TextField("Valor do objetivo", value: $meta.valor, format: .number)
                         .overlay(VStack{Divider().offset(x: 0, y: 15)})
                 }.padding()
                 HStack{
-                    TextField("Quantidade mensal pra guardar", text: $titulo)
+                    TextField("Quantidade mensal pra guardar", value: $meta.mensalmente, format: .number)
                         .overlay(VStack{Divider().offset(x: 0, y: 15)})
                 }.padding()
                 
                 HStack{
-                    TextField("Total acumulado até o momento", text: $titulo)
+                    TextField("Total acumulado até o momento", value: $meta.total_acumulado, format: .number)
                         .overlay(VStack{Divider().offset(x: 0, y: 15)})
                 }.padding()
 
                 Spacer().frame(height: 35)
                 HStack{
-                    Text("Criar")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                    Button( action: {
+                        print(meta)
+                        
+                    }, label: {
+                        Text("Criar")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                    })
+                   
                 }
                 .foregroundColor(.white)
                 .frame(width: 130, height: 60)
@@ -86,8 +101,20 @@ struct telaMetasFinanceiras: View {
                 
                 Text("Metas criadas:").padding(.leading, -165).bold()
                 
+                ScrollView{
+                    
+                    
+                    
+                }
+                
             }.padding(.leading, 20)
-    }
+        }.onAppear(){
+            usuarios = financeiroView.usuarios.filter({$0._id == "f08635540136f70086da8e9a93f194f5"})
+            
+            if (usuarios.count > 0){
+                usuario = usuarios.first!
+            }
+        }
         Spacer()
     }
 }

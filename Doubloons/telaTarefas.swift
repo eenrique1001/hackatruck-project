@@ -9,6 +9,11 @@ import SwiftUI
 
 struct telaTarefas: View {
     @State var text : String = ""
+    
+    @State var tarefa = Tarefa(titulo: "", descricao: "", prioridade: "", status: "")
+    
+    
+    
     var body: some View {
         VStack{
             VStack{
@@ -21,7 +26,8 @@ struct telaTarefas: View {
                         .padding(.bottom, 5)
                     Spacer()
                     Image(systemName: "line.3.horizontal")
-                        .imageScale(.large)
+                        .resizable()
+                        .frame(width: 40, height: 20)
                         .foregroundStyle(.white)
                         .padding()
                 }
@@ -40,57 +46,58 @@ struct telaTarefas: View {
             .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
             .foregroundColor(.white)
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20)))
-            .padding(.leading, 15)
+            .shadow(radius: 10)
+            .padding(.leading, 15).offset()
             
-            VStack{
-                VStack {
+            Spacer().frame(height: 50)
+            
+            HStack{
+                VStack{
+                Text("Criar tarefa")
+                        .fontWeight(.semibold).padding(.leading, -173)
                     HStack{
-                        Text("Criar uma tarefa:")
-                            .bold()
-                        Spacer()
-                    }.padding()
-                    HStack{
-                        TextField("Insira um titulo", text: $text)
+                        TextField("Insira um titulo", text: $tarefa.titulo)
                             .overlay(VStack{Divider().offset(x: 0, y: 15)})
                     }.padding()
                     HStack{
-                        TextField("Insira um titulo", text: $text)
+                        TextField("Insira uma descrição", text: $tarefa.descricao)
                             .overlay(VStack{Divider().offset(x: 0, y: 15)})
                     }.padding()
                     HStack{
-                        TextField("Insira um titulo", text: $text)
+                        TextField("Insira a prioridade", text: $tarefa.prioridade)
                             .overlay(VStack{Divider().offset(x: 0, y: 15)})
                     }.padding()
-                    
-                }
-                
-                HStack{
                     HStack{
-                        Text("Tarefas")
-                            .font(.title3)
-                            .bold()
-                        //.padding(.leading, )
-                        //.padding(.trailing, 125)
+                        TextField("Insira o status da tarefa", text: $tarefa.status)
+                            .overlay(VStack{Divider().offset(x: 0, y: 15)})
+                    }.padding()
+
+                    Spacer().frame(height: 35)
+                    HStack{
+                        Button( action: {
+                            print("")
+                        }, label: {
+                            Text("Criar")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                        })
+                       
                     }
                     .foregroundColor(.white)
-                    .padding(20)
+                    .frame(width: 130, height: 60)
                     .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
                     .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20, bottomTrailing: 20)))
-                    .padding()
+                    .shadow(radius: 5)
+                    .padding(.leading, -170)
+
+                    Spacer().frame(height: 35)
                     
-                    Spacer()
-                }
-                
-                HStack {
-                    Text("Tarefas criadas")
-                        .bold()
-                    Spacer()
-                }.padding()
-                
-                ScrollView {
+                    Text("Tarefas criadas:").padding(.leading, -165).bold()
                     
-                }.frame(maxHeight: 100)
-            }
+                    
+                    
+                }.padding(.leading, 20)
+        }
         }
     }
 }

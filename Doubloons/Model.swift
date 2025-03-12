@@ -8,8 +8,8 @@
 import Foundation
 
 struct Financeiro: Codable, Hashable {
-    var _id: String
-    var _rev: String
+    var _id: String?
+    var _rev: String?
     var nome: String
     var saldo_em_conta: Double
     var renda_bruta_mensal: Double
@@ -27,19 +27,19 @@ struct GastosFixos: Codable, Hashable {
 
 struct Gasto: Codable, Hashable {
     var titulo: String
-    var valor: Double
+    var valor: Double?
 }
 
 struct MetasFinanceiras: Codable, Hashable {
-    var total_metas: Double
+    var total_metas: Double?
     var metas: [Meta]
 }
 
 struct Meta: Codable, Hashable {
     var titulo: String
-    var valor: Double
-    var mensalmente: Double
-    var total_acumulado: Double
+    var valor: Double?
+    var mensalmente: Double?
+    var total_acumulado: Double?
     var data_criacao: Int64
 }
 
