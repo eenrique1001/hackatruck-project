@@ -46,7 +46,10 @@ struct telaGastos: View {
                 }
                 .padding(.bottom, 10)
             }
-            .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
+            .background(LinearGradient(gradient: Gradient(colors: [.vermeioE,
+                .vermeioM,
+                .vermeio,
+                .vermeioC]), startPoint: .bottomLeading, endPoint: .topTrailing))
             .foregroundColor(.white)
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20)))
             .shadow(radius: 10)
@@ -114,7 +117,10 @@ struct telaGastos: View {
                         .fontWeight(.semibold)
                         .foregroundStyle(.white)
                 }.frame(width: 349, height: 60)
-                    .background(LinearGradient(gradient: Gradient(colors:[.black, .red]),startPoint: .leading, endPoint: .trailing))
+                    .background(LinearGradient(gradient: Gradient(colors:[.vermeioE,
+                        .vermeioM,
+                        .vermeio,
+                        .vermeioC]),startPoint: .leading, endPoint: .trailing))
                     .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 10, topTrailing: 10)))
                     .shadow(radius: 8)
             })
