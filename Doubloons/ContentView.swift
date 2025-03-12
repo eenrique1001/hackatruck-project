@@ -14,29 +14,24 @@ struct ContentView: View {
     @State var renda:String = ""
     @State var mostra : Bool = false
     @State var eye2 : String = "eye"
-<<<<<<< HEAD
-    @State var dinheiro : String = "R$ 1522,04"
-    @StateObject var obj1 = FinanceiroViewModel()
-=======
     @State var dinheiro : String = ""
 
->>>>>>> main
     var body: some View {
         NavigationStack{
             VStack{
                 HStack{
-                        Text("Saldo em Conta")
-                            .font(.title)
-                            .bold()
-                            .padding(.top, 20)
-                            .padding(.leading, 20)
-                            .padding(.bottom, 5)
-                        Spacer()
-                        Image(systemName: "line.3.horizontal")
-                            .imageScale(.large)
-                            .foregroundStyle(.white)
-                            .padding()
-                    }
+                    Text("Saldo em Conta")
+                        .font(.title)
+                        .bold()
+                        .padding(.top, 20)
+                        .padding(.leading, 20)
+                        .padding(.bottom, 5)
+                    Spacer()
+                    Image(systemName: "line.3.horizontal")
+                        .imageScale(.large)
+                        .foregroundStyle(.white)
+                        .padding()
+                }
                 HStack{
                     HStack{
                         Text(dinheiro)
@@ -194,10 +189,6 @@ struct ContentView: View {
                     ,startPoint: .bottomLeading, endPoint: .topTrailing))
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 20, topTrailing: 20))).offset(y:30)
             }
-<<<<<<< HEAD
-        }.onAppear {
-            obj1.fetch()
-=======
         }.onAppear(){
             financeiroView.fetch()
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true){_ in
@@ -208,8 +199,8 @@ struct ContentView: View {
                     dinheiro = "R$" + String(usuario.saldo_em_conta)
                 }
             }
->>>>>>> main
         }
+        
     }
 }
 
