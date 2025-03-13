@@ -103,6 +103,11 @@ struct telaMetasFinanceiras: View {
                             usuario.metas_financeiras.metas.append(meta)
                             print(usuario)
                             financeiroView.post(usuario)
+                            
+                            meta.titulo = ""
+                            meta.total_acumulado = nil
+                            meta.mensalmente = nil
+                            meta.valor = nil
                         }
                         
                         
@@ -131,6 +136,17 @@ struct telaMetasFinanceiras: View {
                             
                             HStack{
                                 VStack(alignment: .leading){
+                                    HStack{
+                                        Spacer()
+                                        
+                                        Image(systemName: "trash.fill")
+                                            .onTapGesture {
+                                                usuario.metas_financeiras.total_metas! -= m.valor!
+                                                usuario.metas_financeiras.metas.remove(at: index)
+                                                financeiroView.post(usuario)
+//                                                financeiroView.fetch()
+                                            }
+                                    }
                                     HStack{
                                         Text("Título:").fontWeight(.semibold)
                                         Spacer()
@@ -169,83 +185,9 @@ struct telaMetasFinanceiras: View {
                             .background(.white)
                             .clipShape(Rectangle()).cornerRadius(10)
                             .shadow(radius: 10)
-                            .offset(x: offsets[index].width)
-                            .gesture(
-                                DragGesture()
-                                    .onChanged { gesture in
-                                        // Prevent swipe to the right in default position
-                                        if offsets[index].width == 0 && gesture.translation.width > 0 {
-                                            return
-                                        }
-                                        
-                                        // Prevent drag more than swipeLeftLimit points
-                                        if gesture.translation.width < swipeLeftLimit {
-                                            return
-                                        }
-                                        
-                                        // Prevent swipe againt to the left if it's already swiped
-                                        if offsets[index].width == swipeLeftLimit && gesture.translation.width < 0 {
-                                            return
-                                        }
-                                        
-                                      
-                                        
-                                        // If view already swiped to the left and we start dragging to the right
-                                        // Firstly will check if it's swiped left
-                                        if offsets[index].width >= swipeLeftLimit {
-                                            // And here checking if swiped to the right more than swipeRightLimit points
-                                            // If more - need to set the view to zero position
-                                            if gesture.translation.width > swipeRightLimit {
-                                                self.offsets[index] = .zero
-                                                return
-                                            }
-                                            
-                                            // Check if only swiping to the right - update distance by minus swipeLeftLimit points
-                                            if offsets[index].width != 0 && gesture.translation.width > 0 {
-                                                self.offsets[index] = .init(width: swipeLeftLimit + gesture.translation.width,
-                                                                            height: gesture.translation.height)
-                                                return
-                                            }
-                                        }
-                                        
-                                        self.offsets[index] = gesture.translation
-                                    }
-                                    .onEnded { gesture in
-                                        withAnimation {
-                                            // Left swipe handle:
-                                            if self.offsets[index].width < swipeLeftLimitToShow {
-                                                self.offsets[index].width = swipeLeftLimit
-                                                return
-                                            }
-                                            if self.offsets[index].width < swipeLeftLimit {
-                                                self.offsets[index].width = swipeLeftLimit
-                                                return
-                                            }
-                                            
-                                            // Right swipe handle:
-                                            if gesture.translation.width > swipeRightLimitToHide {
-                                                self.offsets[index] = .zero
-                                                return
-                                            }
-                                            if gesture.translation.width < swipeRightLimitToHide {
-                                                self.offsets[index].width = swipeLeftLimit
-                                                return
-                                            }
-                                            
-                                            self.offsets[index] = .zero
-                                            
-                                            
-                                           
-                                        }
-                                        
-                                        if(offsets[index].width <= -25){
-                                            usuario.metas_financeiras.total_metas! -= m.valor!
-                                            usuario.metas_financeiras.metas.remove(at: index)
-                                            //financeiroView.post(usuario)
-                                            return
-                                        }
-                                    }
-                            )
+                            
+                            
+//
                             
                         }.padding()
                     }
