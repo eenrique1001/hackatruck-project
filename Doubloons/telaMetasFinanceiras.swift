@@ -233,6 +233,7 @@ struct telaMetasFinanceiras: View {
                                         if(offsets[index].width <= -25){
                                             usuario.metas_financeiras.total_metas! -= m.valor!
                                             usuario.metas_financeiras.metas.remove(at: index)
+                                            //financeiroView.post(usuario)
                                             return
                                         }
                                     }
