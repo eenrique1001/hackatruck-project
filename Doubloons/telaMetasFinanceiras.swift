@@ -15,7 +15,7 @@ struct telaMetasFinanceiras: View {
     
     @ObservedObject var financeiroView = FinanceiroViewModel()
     
-    @State var usuario : Financeiro = Financeiro(nome: "", saldo_em_conta: 0, renda_bruta_mensal: 0, saldo_restante_mensal: 0, gastos_fixos: GastosFixos(total_gastos: 0, gastos: [Gasto(titulo: "", valor: 0)]), metas_financeiras: MetasFinanceiras(total_metas: 0, metas: [Meta(titulo: "", data_criacao: 2)]), reserva_emergencial: ReservaEmergencial(total_reserva: 0, mensalmente: 0, guardado_este_mes: 0, quantidade_de_meses_acumulados: 0, data_criacao: 0), tarefas: [Tarefa(titulo: "", descricao: "", prioridade: "", status: "")])
+    @State var usuario : Financeiro = Financeiro(nome: "", saldo_em_conta: 0, renda_bruta_mensal: 0, saldo_restante_mensal: 0, gastos_fixos: GastosFixos(total_gastos: 0, gastos: [Gasto(titulo: "", valor: 0)]), metas_financeiras: MetasFinanceiras(total_metas: 0, metas: [Meta(titulo: "teste", data_criacao: 1740405814346)]), reserva_emergencial: ReservaEmergencial(total_reserva: 0, mensalmente: 0, guardado_este_mes: 0, quantidade_de_meses_acumulados: 0, data_criacao: 0), tarefas: [Tarefa(titulo: "", descricao: "", prioridade: "", status: "")])
     
     
     
@@ -38,7 +38,7 @@ struct telaMetasFinanceiras: View {
                 }
                 HStack{
                     HStack{
-                        Text("R$ 522,04")
+                        Text("R$" + String(usuario.metas_financeiras.total_metas!))
                             .font(.title3)
                             .bold()
                             .padding(.leading, 20)
@@ -98,31 +98,39 @@ struct telaMetasFinanceiras: View {
                 
                 Spacer().frame(height: 35)
                 
-                HStack {
-                    Text("Metas criadas:").padding(.leading, -165).bold()
-//                    Button("Teste") {
-//                        usuario = financeiroView.fetch2()
-//                        print(usuario!)
-//                    }
-                    
-                }
-                
+                Text("Metas criadas:").padding(.leading, -165).bold()
                 
                 ScrollView{
-                    
+                    VStack {
                         ForEach(usuario.metas_financeiras.metas, id: \.self){
                             m in
-                            Text(m.titulo)
+                            HStack{
+                                VStack{
+                                    Text(m.titulo)
+                                    Text("\(m.valor)")
+                                    Text("\(m.mensalmente)")
+                                    Text("\(m.total_acumulado)")
+                                    Text(Date(timeIntervalSince1970: TimeInterval(m.data_criacao/1000)).description)
+                                    
+                                    
+                                    
+                                }
+                            }
+                            
                         }
+                    }
                     
                     
                 }
                 
-            }.padding(.leading, 20)
+            }
+            .padding(.leading, 20)
         }
         Spacer()
     }
 }
+
+
 
 #Preview {
     telaMetasFinanceiras()

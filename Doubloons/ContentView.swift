@@ -165,7 +165,7 @@ struct ContentView: View {
                         }.padding(.leading,-10)
                     }.frame(width: 180,height: 130)
                     .background(LinearGradient(gradient: Gradient(colors: [.azulbebeP, 
-                        .azulbebeM])
+                        .azulbebem])
                         ,startPoint: .topLeading,endPoint: .bottomTrailing))
                         .padding(1)
                         .background()

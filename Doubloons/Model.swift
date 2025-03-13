@@ -40,7 +40,7 @@ struct Meta: Codable, Hashable {
     var valor: Double?
     var mensalmente: Double?
     var total_acumulado: Double?
-    var data_criacao: Int64
+    var data_criacao: Int
 }
 
 struct ReservaEmergencial: Codable, Hashable {
