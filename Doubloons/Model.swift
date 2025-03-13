@@ -8,8 +8,8 @@
 import Foundation
 
 struct Financeiro: Codable, Hashable {
-    var _id: String?
-    var _rev: String?
+    var _id: String
+    var _rev: String
     var nome: String
     var saldo_em_conta: Double
     var renda_bruta_mensal: Double
