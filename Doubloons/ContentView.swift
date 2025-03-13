@@ -25,13 +25,22 @@ struct ContentView: View {
                         .font(.title)
                         .bold()
                         .padding(.top, 20)
-                        .padding(.leading, 20)
+                        .padding(.leading, 10)
                         .padding(.bottom, 5)
                     Spacer()
-                    Image(systemName: "line.3.horizontal")
-                        .imageScale(.large)
-                        .foregroundStyle(.white)
-                        .padding()
+                    HStack {
+                        Image(systemName: "circle.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .foregroundStyle(.cinzaclarin)
+                            .padding()
+                            .offset(x: 55)
+                        Image(systemName: "circle.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .foregroundStyle(.cinzasutil)
+                            .padding()
+                    }
                 }
                 HStack{
                     HStack{
