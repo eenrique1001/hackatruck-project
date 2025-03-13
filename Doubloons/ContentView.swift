@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var mostra : Bool = false
     @State var eye2 : String = "eye"
     @State var dinheiro : String = ""
+    @State var renbrumen : Double = 0
 
     var body: some View {
         NavigationStack{
@@ -80,7 +81,7 @@ struct ContentView: View {
                     .padding(.trailing)
                 HStack{
                     Text("R$").font(.title3)
-                    TextField("Digite aqui", text: $renda)
+                    TextField("Digite aqui", value: $renbrumen, format: .number)
                         .keyboardType(.decimalPad)
                         .font(.title3)
                         .foregroundColor(.white)
@@ -165,7 +166,7 @@ struct ContentView: View {
                         }.padding(.leading,-10)
                     }.frame(width: 180,height: 130)
                     .background(LinearGradient(gradient: Gradient(colors: [.azulbebeP, 
-                        .azulbebem])
+                        .azulbebeM])
                         ,startPoint: .topLeading,endPoint: .bottomTrailing))
                         .padding(1)
                         .background()
