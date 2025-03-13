@@ -27,11 +27,19 @@ struct telaTarefas: View {
                         .padding(.leading, 20)
                         .padding(.bottom, 5)
                     Spacer()
-                    Image(systemName: "line.3.horizontal")
-                        .resizable()
-                        .frame(width: 40, height: 20)
-                        .foregroundStyle(.white)
-                        .padding()
+                    HStack {
+                        Image(systemName: "circle.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .foregroundStyle(.cinzaclarin)
+                            .padding()
+                            .offset(x: 55)
+                        Image(systemName: "circle.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .foregroundStyle(.cinzasutil)
+                            .padding()
+                    }
                 }
                 HStack{
                     HStack{
