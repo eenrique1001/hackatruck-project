@@ -44,7 +44,10 @@ struct telaReservaEmergencial: View {
                 }
                 .padding(.bottom, 10)
             }
-            .background(LinearGradient(gradient: Gradient(colors: [Color.green, Color.black]), startPoint: .topTrailing, endPoint: .bottomLeading))
+            .background(LinearGradient(gradient: Gradient(colors: [.verde, 
+                .verdeM,
+                .verdeE,
+                .verdeP]), startPoint: .topTrailing, endPoint: .bottomLeading))
             .foregroundColor(.white)
             .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20)))
             .shadow(radius: 10)
@@ -62,7 +65,10 @@ struct telaReservaEmergencial: View {
                     .fontWeight(.semibold)
                     .foregroundStyle(.white)
             }.frame(width: 150, height: 60)
-                .background(LinearGradient(gradient: Gradient(colors:[.green, .black]),startPoint: .topTrailing, endPoint: .bottomLeading))
+                .background(LinearGradient(gradient: Gradient(colors:[.verde, 
+                    .verdeM,
+                    .verdeE,
+                    .verdeP]),startPoint: .topTrailing, endPoint: .bottomLeading))
                 .clipShape(UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 10, topTrailing: 10)))
                 .shadow(radius: 8).padding(.trailing,200).padding(.top)
             Spacer().frame(height: 30)

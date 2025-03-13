@@ -51,6 +51,13 @@ struct ReservaEmergencial: Codable, Hashable {
     var data_criacao: Int64
 }
 
+extension ReservaEmergencial: CustomStringConvertible{
+    var description: String {
+        let formatado = String(format: "%.2f", total_reserva)
+        return "\(total_reserva): \(formatado)"
+    }
+}
+
 struct Tarefa: Codable, Hashable {
     var titulo: String
     var descricao: String
