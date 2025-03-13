@@ -100,7 +100,7 @@ struct ContentView: View {
                         VStack(alignment:.leading){
                             Text("Gastos fixos").foregroundColor(.white).bold()
                             Spacer().frame(height: 5)
-                            Text("R$" + String(usuario.gastos_fixos.total_gastos)).foregroundColor(.white)
+                            Text("R$ " + String(usuario.gastos_fixos.total_gastos)).foregroundColor(.white)
                             Spacer().frame(height: 30)
                             Text("Editar").font(.system(size: 15)).foregroundColor(.white)
                         }.padding(.leading,-40)
@@ -120,7 +120,7 @@ struct ContentView: View {
                         VStack(alignment:.leading){
                             Text("Metas Financeiras").foregroundColor(.white).bold()
                             Spacer().frame(height: 5)
-                            Text("R$" + String(usuario.metas_financeiras.total_metas!)).foregroundColor(.white)
+                            Text("R$ " + String(usuario.metas_financeiras.total_metas!)).foregroundColor(.white)
                             Spacer().frame(height: 30)
                             Text("Editar").font(.system(size: 15)).foregroundColor(.white)
                         }.padding(.leading,0)
@@ -141,7 +141,7 @@ struct ContentView: View {
                         VStack(alignment:.leading){
                             Text("Reserva               Emergencial").foregroundColor(.white).bold().multilineTextAlignment(.leading)
                             Spacer().frame(height: 5)
-                            Text("R$" + String(usuario.reserva_emergencial.total_reserva)).foregroundColor(.white)
+                            Text("R$ " + String(usuario.reserva_emergencial.total_reserva)).foregroundColor(.white)
                             Spacer().frame(height: 10)
                             Text("Editar").font(.system(size: 15)).foregroundColor(.white)
                         }.padding(.leading,-15)
@@ -160,7 +160,7 @@ struct ContentView: View {
                         VStack(alignment:.leading){
                             Text("Saldo Restante    Mensal").foregroundColor(.white).bold().multilineTextAlignment(.leading)
                             Spacer().frame(height: 5)
-                            Text("R$" + String(usuario.saldo_restante_mensal)).foregroundColor(.white)
+                            Text("R$ " + String(usuario.saldo_restante_mensal)).foregroundColor(.white)
                             Spacer().frame(height: 30)
                         }.padding(.leading,-10)
                     }.frame(width: 180,height: 130)
