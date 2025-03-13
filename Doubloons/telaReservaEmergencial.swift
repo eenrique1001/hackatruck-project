@@ -107,7 +107,7 @@ struct telaReservaEmergencial: View {
                 
                 Spacer().frame(width: 45)
                 
-                Text("$522,04")
+                Text("R$ "+String(usuario.saldo_restante_mensal))
                     .foregroundStyle(.white)
                     .fontWeight(.semibold)
                 
