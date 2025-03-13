@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var financeiroView = FinanceiroViewModel()
-    @State var usuario : Financeiro = Financeiro(nome: "", saldo_em_conta: 0, renda_bruta_mensal: 0, saldo_restante_mensal: 0, gastos_fixos: GastosFixos(total_gastos: 0, gastos: [Gasto(titulo: "", valor: 0)]), metas_financeiras: MetasFinanceiras(total_metas: 0, metas: [Meta(titulo: "", data_criacao: 2)]), reserva_emergencial: ReservaEmergencial(total_reserva: 0, mensalmente: 0, guardado_este_mes: 0, quantidade_de_meses_acumulados: 1, data_criacao: 2), tarefas: [Tarefa(titulo: "", descricao: "", prioridade: "", status: "")])
+    @State var usuario : Financeiro = Financeiro(_id: "", _rev: "", nome: "", saldo_em_conta: 0, renda_bruta_mensal: 0, saldo_restante_mensal: 0, gastos_fixos: GastosFixos(total_gastos: 0, gastos: [Gasto(titulo: "", valor: 0)]), metas_financeiras: MetasFinanceiras(total_metas: 0, metas: [Meta(titulo: "", data_criacao: 2)]), reserva_emergencial: ReservaEmergencial(total_reserva: 0, mensalmente: 0, guardado_este_mes: 0, quantidade_de_meses_acumulados: 1, data_criacao: 2), tarefas: [Tarefa(titulo: "", descricao: "", prioridade: "", status: "")])
     @State var usuarios: [Financeiro] = []
     @State var renda:String = ""
     @State var mostra : Bool = false
@@ -20,6 +20,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             VStack{
+                
                 HStack{
                     Text("Saldo em Conta")
                         .font(.title)
@@ -157,6 +158,7 @@ struct ContentView: View {
                         .cornerRadius(25)
                         .shadow(radius: 10)
                 }
+                
                     HStack{
                         VStack(alignment:.leading){
                             Text("Saldo Restante    Mensal").foregroundColor(.white).bold().multilineTextAlignment(.leading)
@@ -166,7 +168,7 @@ struct ContentView: View {
                         }.padding(.leading,-10)
                     }.frame(width: 180,height: 130)
                     .background(LinearGradient(gradient: Gradient(colors: [.azulbebeP, 
-                        .azulbebeM])
+                        .azulbebem])
                         ,startPoint: .topLeading,endPoint: .bottomTrailing))
                         .padding(1)
                         .background()
