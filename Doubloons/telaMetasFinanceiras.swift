@@ -77,7 +77,7 @@ struct telaMetasFinanceiras: View {
                         .overlay(VStack{Divider().offset(x: 0, y: 15)})
                 }.padding()
                 
-                Spacer().frame(height: 35)
+                Spacer().frame(height: 15)
                 HStack{
                     Button( action: {
                         print(meta)
@@ -96,7 +96,7 @@ struct telaMetasFinanceiras: View {
                 .shadow(radius: 5)
                 .padding(.leading, -170)
                 
-                Spacer().frame(height: 35)
+                Spacer().frame(height: 15)
                 
                 Text("Metas criadas:").padding(.leading, -165).bold()
                 
@@ -105,19 +105,47 @@ struct telaMetasFinanceiras: View {
                         ForEach(usuario.metas_financeiras.metas, id: \.self){
                             m in
                             HStack{
-                                VStack{
-                                    Text(m.titulo)
-                                    Text("\(m.valor)")
-                                    Text("\(m.mensalmente)")
-                                    Text("\(m.total_acumulado)")
-                                    Text(Date(timeIntervalSince1970: TimeInterval(m.data_criacao/1000)).description)
+                                VStack(alignment: .leading){
+                                    HStack{
+                                        Text("Título:").fontWeight(.semibold)
+                                        Spacer()
+                                        Text(m.titulo)
+                                    }.padding(5).background(.cinzaclaro).clipShape(Rectangle()).cornerRadius(10)
                                     
+                                    HStack{
+                                        Text("Valor: ").fontWeight(.semibold)
+                                        Spacer()
+                                        Text(String(format: "R$%.2f", m.valor ?? 0))
+                                    }.padding(5).background(.cinzaclaro).clipShape(Rectangle()).cornerRadius(10)
                                     
+                                    HStack{
+                                        Text("Mensalmente: ").fontWeight(.semibold)
+                                        Spacer()
+                                        Text(String(format: "R$%.2f", m.mensalmente ?? 0))
+                                    }.padding(5).background(.cinzaclaro).clipShape(Rectangle()).cornerRadius(10)
+                                    
+                                    HStack{
+                                        Text("Total Acumulado: ").fontWeight(.semibold)
+                                        Spacer()
+                                        Text(String(format: "R$%.2f", m.total_acumulado ?? 0))
+                                    }.padding(5).background(.cinzaclaro).clipShape(Rectangle()).cornerRadius(10)
+                                    
+                                    HStack{
+                                        Text("Data Criação: ").fontWeight(.semibold)
+                                        Spacer()
+                                        Text(Date(timeIntervalSince1970: TimeInterval(m.data_criacao/1000)).formatted(date: .numeric, time: .omitted).description)
+                                    }.padding(5).background(.cinzaclaro).clipShape(Rectangle()).cornerRadius(10)
                                     
                                 }
+                                
                             }
+                            .padding()
+                            .frame(width: 350)
+                            .background(.white)
+                            .clipShape(Rectangle()).cornerRadius(10)
+                            .shadow(radius: 10)
                             
-                        }
+                        }.padding()
                     }
                     
                     
