@@ -137,7 +137,7 @@ struct telaGastos: View {
                 
                 Spacer().frame(width: 45)
                 
-                Text("$522,04")
+                Text("R$ "+String(usuario.saldo_restante_mensal))
                     .foregroundStyle(.white)
                     .fontWeight(.semibold)
                 
@@ -162,9 +162,7 @@ struct telaGastos: View {
 
                 Spacer().frame(height: 35)
                 HStack{
-                    Button( action: {
-                        print("")
-                    }, label: {
+                    Button(action: {bool.toggle()}, label: {
                         Text("Criar")
                             .font(.title3)
                             .fontWeight(.semibold)

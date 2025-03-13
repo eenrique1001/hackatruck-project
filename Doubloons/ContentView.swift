@@ -14,7 +14,7 @@ struct ContentView: View {
     @State var renda:String = ""
     @State var mostra : Bool = false
     @State var eye2 : String = "eye"
-    @State var dinheiro : String = ""
+    @State var dinheiro : String = "R$ 1522.0"
     @State var renbrumen : Double = 0
 
     var body: some View {
@@ -54,7 +54,7 @@ struct ContentView: View {
                         } else {
                             mostra = true
                             eye2 = "eye"
-                            dinheiro = "R$ 1522,04"
+                            dinheiro = "R$ 1522.0"
                         }
                     }.frame(width: 200, height: 40)
                     
@@ -199,7 +199,7 @@ struct ContentView: View {
                 print(usuarios.count)
                 if (usuarios.count > 0){
                     usuario = usuarios.first!
-                    dinheiro = "R$" + String(usuario.saldo_em_conta)
+                    
                 }
             }
         }
